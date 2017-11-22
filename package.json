@@ -1,0 +1,32 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "description": "weathe search terminal tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "weather": "bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JiangBao/weather-cli.git"
+  },
+  "keywords": [
+    "weather",
+    "tool"
+  ],
+  "author": "JiangBao <jiangbao1123@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JiangBao/weather-cli/issues"
+  },
+  "homepage": "https://github.com/JiangBao/weather-cli#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "chalk": "^2.3.0",
+    "node-emoji": "^1.8.1",
+    "ora": "^1.3.0"
+  }
+}
