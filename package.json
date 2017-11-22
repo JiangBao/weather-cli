@@ -1,5 +1,5 @@
 {
-  "name": "weather-cli",
+  "name": "weather-cli-cmd",
   "version": "1.0.0",
   "description": "weathe search terminal tool",
   "main": "index.js",
