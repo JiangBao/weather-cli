@@ -119,7 +119,8 @@ function getDaily(daily) {
       weather += `${item.day.weather}\t\t`;
     } else {
       img += `${emoji.get(EMOJI[item.night.img])}  ${emoji.get(EMOJI[item.day.img])}\t\t`;
-      weather += `${item.night.weather}-${item.day.weather}\t\t`;
+      weather += `${item.night.weather}-${item.day.weather}\t`;
+      if (`${item.night.weather}-${item.day.weather}`.length < 5) { weather += '\t'; }
     }
     temp += `${item.night.templow}-${item.day.temphigh}℃\t\t`;
     winddirect += `${item.day.winddirect}\t`;
