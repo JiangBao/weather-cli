@@ -28,6 +28,10 @@ switch(method) {
   case '--name':
     searchByName();
     break;
+  case '-v':
+  case '--version':
+    console.log(require('../package.json').version);
+    break;
   default:
     errWarn();
     return;
@@ -50,7 +54,7 @@ function searchByName() {
       const data = resp.data;
       if (data.status === 0) {
         const res = data.result;
-        console.log(chalk.green(`\t\t\t\t\t${res.city} 今日天气预报:\n`));
+        console.log(chalk.green(`\t\t\t\t\t${res.city} 今日天气预报\n`));
         console.log(chalk.blue(`${res.city}\t${res.date}\t${res.week}`));
         console.log(`天气：${chalk.blue(`${res.weather}${emoji.get(EMOJI[res.img])}\t${res.templow} - ${res.temphigh} ℃`)}`);
         console.log(`风力：${chalk.blue(res.winddirect, res.windpower)}`);
@@ -77,6 +81,7 @@ function help() {
   console.log(chalk.blue('Usage:'), 'weather [options] arguments');
   console.log(chalk.blue('Options:'));
   console.log('\t', chalk.green('-h  --help\t'), 'Options help');
+  console.log('\t', chalk.green('-v  --version\t'), 'get version');
   console.log('\t', chalk.green('-n  --name\t'), 'search weather by city name');
   console.log(chalk.blue('Example:'));
   console.log('\t', chalk.green('weather -n 黄山\t'), 'get city 「黄山」weather');
