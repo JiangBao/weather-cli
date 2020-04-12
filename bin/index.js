@@ -48,20 +48,17 @@ function searchByName() {
     .then((resp) => {
       loading.stop();
       const data = resp.data;
-      if (data.status === '0') {
+      if (data.status === 0) {
         const res = data.result;
-        console.log(chalk.green(`${res.city}今日天气预报:\n`));
-        console.log(chalk.blue(`\t${res.city}\t${res.date}${res.week}\t${res.weather}${emoji.get(EMOJI[res.img])}\t${res.templow} - ${res.temphigh} ℃`));
-        console.log(`\t风力：${chalk.blue(res.winddirect, res.windpower)}`);
-        console.log(`\tpm2.5指数: ${chalk.green(res.aqi.ipm2_5)}`);
-        console.log(AQI[res.aqi.quality].call(chalk, `\t空气质量: ${res.aqi.quality}`));
-        // console.log(res.aqi.aqiinfo.affect, res.aqi.aqiinfo.measure);
+        console.log(chalk.green(`\t\t\t\t\t${res.city} 今日天气预报:\n`));
+        console.log(chalk.blue(`${res.city}\t${res.date}\t${res.week}`));
+        console.log(`天气：${chalk.blue(`${res.weather}${emoji.get(EMOJI[res.img])}\t${res.templow} - ${res.temphigh} ℃`)}`);
+        console.log(`风力：${chalk.blue(res.winddirect, res.windpower)}`);
+        console.log(`pm2.5指数: ${chalk.green(res.aqi.ipm2_5)}`);
+        console.log(AQI[res.aqi.quality].call(chalk, `气质量: ${res.aqi.quality}`));
         
         console.log(chalk.green('\t\t\t\t\t未来7天天气预报'));
         console.log(getDaily(res.daily));
-
-        // console.log(chalk.green('\t\t\t未来24小时天气预报'));
-        // console.log(getHourly(res.hourly));
       } else {
         loading.stop();
         console.log(chalk.red('check your city name'));
@@ -81,6 +78,8 @@ function help() {
   console.log(chalk.blue('Options:'));
   console.log('\t', chalk.green('-h  --help\t'), 'Options help');
   console.log('\t', chalk.green('-n  --name\t'), 'search weather by city name');
+  console.log(chalk.blue('Example:'));
+  console.log('\t', chalk.green('weather -n 黄山\t'), 'get city 「黄山」weather');
 }
 
 /**
