@@ -59,7 +59,7 @@ function searchByName() {
         console.log(`天气：${chalk.blue(`${res.weather}${emoji.get(EMOJI[res.img])}\t${res.templow} - ${res.temphigh} ℃`)}`);
         console.log(`风力：${chalk.blue(res.winddirect, res.windpower)}`);
         console.log(`pm2.5指数: ${chalk.green(res.aqi.ipm2_5)}`);
-        console.log(AQI[res.aqi.quality].call(chalk, `气质量: ${res.aqi.quality}`));
+        console.log(AQI[res.aqi.quality].call(chalk, `空气质量: ${res.aqi.quality}`));
         
         console.log(chalk.green('\t\t\t\t\t未来7天天气预报'));
         console.log(getDaily(res.daily));
